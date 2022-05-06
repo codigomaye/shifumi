@@ -47,3 +47,58 @@ function computerPlay(){
     // Return "choices" element with "randomChoice" index 
     return choices[randomChoice];
 }
+
+// PLAY_ROUND
+
+// SHIFUMI ORDER: Paper > Rock; Scissors > Paper; Rock > Scissors;  
+
+// Get parameter from "USER_CHOICE" as "playerSelection" 
+
+// Get parameter "COMPUTER_CHOICE" as "computerSelection" 
+function playRound(playerSelection, computerSelection){
+
+    // Create variable "user" as string with value "playerSelection" 
+    let user = playerSelection;
+
+    // Create variable "computer" as string with value "computerSelection" 
+    let computer = computerSelection;
+
+    // Create variable "winner" as string 
+    let winner;
+    
+    // If "user" and "computer" are the same 
+    if(user == computer){
+
+        //     then say "You -> "user" | Computer -> "computer": It's a tie!" 
+        console.log(`You -> "user" | Computer -> "computer": It's a tie!`);
+
+        //     then set "winner" value to "tie" 
+        winner = "tie";    
+        
+    }
+    // Else if "user" is "paper" and "computer" is "rock" 
+    //     or "user" is "scissors" and "computer" is "paper" 
+    
+    //     or "user" is "rock" an "computer" is "scissors"  
+    else if (user == "paper" && computer == "rock" || user == "scissors" && computer == "paper" || user == "rock" && computer == "scissors"){
+        
+        //     then say "You -> "user" | Computer -> "computer": You win" 
+        console.log(`You -> "user" | Computer -> "computer": You win`);
+
+        //     then set "winner" value to "user" 
+        winner = "user";
+    }
+    
+    // Else 
+    else{
+        //     then say "You -> "user" | Computer -> "computer": Computer win" 
+        console.log(`You -> "user" | Computer -> "computer": Computer win"`);
+
+        //     then set "winner" value to "computer"  
+        winner = "computer"; 
+    }
+      
+    // return "winner" 
+    return winner;
+    
+}
