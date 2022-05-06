@@ -71,54 +71,77 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-const playerSelection = playerPlay();
-const computerSelection = computerPlay();
-// playRound(playerSelection, computerSelection)
-
 // GAME
 function game() {
 
+    // Create variable "userScore" as integer with value 0 
     let userScore = 0;
 
+    // Create variable "computerScore" as integer with value 0 
     let computerScore = 0;
 
+    // Create variable "userChoice" as string 
+    let userChoice;
+
+    // Create variable "computerChoice" as string 
+    let computerChoice;
+
+    // Create variable "winner" as string 
     let winner;
 
-    for (let i = 0; i < 5; i++) {
+    // Enter in a 5 time loop 
+    for(let i = 0; i < 5; i++){
 
-        winner = playRound();
+        // Set "userChoice" value as USER_CHOICE 
+        userChoice = playerPlay();
 
-        switch (winner) {
+        // Set "computerChoice" value as COMPUTER_CHOICE 
+        computerChoice = computerPlay();
 
-            case "user":
+        // set "winner" value as PLAY_ROUND with parameter: userChoice, computerChoice 
+        winner = playRound(userChoice, computerChoice);
+
+        // In the case "winner" 
+        switch(winner){
+            
+            // Is 'user' then increment "userScore" value by 1 
+            case 'user':
                 userScore++;
                 break;
-
-            case "computer":
+            
+            // Is 'computer' then increment "computerScore" value by 1 
+            case 'computer':
                 computerScore++;
                 break;
 
+            // Else do nothing 
             default:
                 break;
         }
-
+        // End of loop 
     }
-
-
-    console.log(`Your Score: ${userScore}`);
-
-    console.log(`Computer Score: ${computerScore}`);
-
-    if (userScore > computerScore) {
-        console.log("Congratulation user. You won!!");
+    
+    // Print out "Your Score: 'userScore'" 
+     console.log(`Your score: ${userScore}`);
+    
+    // Print out "Computer Score: 'computerScore'" 
+    console.log(`Computer score: ${computerScore}`);
+    
+    // If "userScore" is greater than "computerScore" then Print out "Congratulation user. You Won!!" 
+    if(userScore > computerScore){
+        console.log("Congratulation: You won!!");
     }
-
-
-    else if (userScore < computerScore) {
+     
+    // Else if "userScore" is smaller than "computerScore" then Print out "Nice try. Computer Won!!" 
+    else if (userScore < computerScore){
         console.log("Nice try. Computer won!!");
     }
-
-    else {
-        console.log("It's a tie");
-    }
+    
+    // Else Print out "It's a Tie" 
+     else{
+         console.log("It's a tie !!");
+     }
+    
 }
+
+game();
