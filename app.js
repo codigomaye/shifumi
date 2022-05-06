@@ -70,7 +70,7 @@ function playRound(playerSelection, computerSelection){
     if(user == computer){
 
         //     then say "You -> "user" | Computer -> "computer": It's a tie!" 
-        console.log(`You -> "user" | Computer -> "computer": It's a tie!`);
+        console.log(`You -> ${user} | Computer -> ${computer}: It's a tie!`);
 
         //     then set "winner" value to "tie" 
         winner = "tie";    
@@ -83,7 +83,7 @@ function playRound(playerSelection, computerSelection){
     else if (user == "paper" && computer == "rock" || user == "scissors" && computer == "paper" || user == "rock" && computer == "scissors"){
         
         //     then say "You -> "user" | Computer -> "computer": You win" 
-        console.log(`You -> "user" | Computer -> "computer": You win`);
+        console.log(`You -> ${user} | Computer -> ${computer}: You win`);
 
         //     then set "winner" value to "user" 
         winner = "user";
@@ -92,7 +92,7 @@ function playRound(playerSelection, computerSelection){
     // Else 
     else{
         //     then say "You -> "user" | Computer -> "computer": Computer win" 
-        console.log(`You -> "user" | Computer -> "computer": Computer win"`);
+        console.log(`You -> ${user} | Computer -> ${computer}: Computer win`);
 
         //     then set "winner" value to "computer"  
         winner = "computer"; 
