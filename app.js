@@ -29,3 +29,21 @@ function playerPlay(){
     }
 }
 
+// COMPUTER_CHOICE
+function computerPlay(){
+
+    // Create array "choices" of string with values "rock", "paper" and "scissors" 
+    let choices = ["rock", "paper", "scissors"];
+
+    // Create variable "randomChoice" as integer 
+    let randomChoice;
+
+    // Set "randomChoice" value to a Random number between 0 and 3 not included 
+    randomChoice = Math.random() * 3;
+
+    // Round "randomChoice" value to the floor and keep the value to "randomChoice" 
+    randomChoice = Math.floor(randomChoice);
+
+    // Return "choices" element with "randomChoice" index 
+    return choices[randomChoice];
+}
