@@ -33,6 +33,31 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
+function emojify(choiceToEmojify){
+
+    let choice = choiceToEmojify;
+
+    switch (choice){
+
+        case "rock" :
+            return "🪨";
+            break;
+
+        case "paper":
+            return "📜";
+            break;
+
+        case "scissors":
+            return "✂️";
+            break;
+
+        default:
+            return "error";
+            break; 
+    }
+}
+
+
 function playRound(playerSelection, computerSelection) {
 
     let user = playerSelection;
@@ -43,7 +68,7 @@ function playRound(playerSelection, computerSelection) {
 
     if (user == computer) {
 
-        console.log(`You -> ${user} | Computer -> ${computer}: It's a tie!`);
+        console.log(`🙍 -> ${emojify(user)} | 🖥️ -> ${emojify(computer)}: It's a tie!`);
 
         winner = "tie";
 
@@ -51,13 +76,13 @@ function playRound(playerSelection, computerSelection) {
 
     else if (user == "paper" && computer == "rock" || user == "scissors" && computer == "paper" || user == "rock" && computer == "scissors") {
 
-        console.log(`You -> ${user} | Computer -> ${computer}: You win`);
+        console.log(`🙍 -> ${emojify(user)} | 🖥️ -> ${emojify(computer)}: You win`);
 
         winner = "user";
     }
 
     else {
-        console.log(`You -> ${user} | Computer -> ${computer}: Computer win`);
+        console.log(`🙍 -> ${emojify(user)} | 🖥️ -> ${emojify(computer)}: Computer win`);
 
         winner = "computer";
     }
@@ -101,9 +126,9 @@ function game() {
         }
     }
 
-    console.log(`Your score: ${userScore}`);
+    console.log(`🙍: ${userScore}`);
 
-    console.log(`Computer score: ${computerScore}`);
+    console.log(`🖥️: ${computerScore}`);
 
     if (userScore > computerScore) {
         console.log("Congratulation: You won!!");
