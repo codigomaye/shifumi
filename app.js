@@ -103,8 +103,69 @@ function playRound(playerSelection, computerSelection){
     
 }
 
+
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
+// playRound(playerSelection, computerSelection)
 
-playRound(playerSelection, computerSelection)
+// GAME
+function game(){
+    
+    // Create variable "userScore" as integer with value 0 
+    let userScore = 0;
 
+    // Create variable "computerScore" as integer with value 0 
+    let computerScore = 0;
+
+    // Create variable "winner" as string 
+    let winner;
+
+    // Enter in a 5 time loop 
+    for (let i = 0; i < 5; i++){
+
+        // set "winner" value as PLAY_ROUND 
+        winner = playRound();
+
+        // In the case "winner" 
+        switch(winner){
+            
+            // Is 'user' then increment "userScore" value by 1 
+            case "user":
+                userScore++;
+                break;
+
+                // Is 'computer' then increment "computerScore" value by 1 
+            case "computer":
+                computerScore++;
+                break;
+
+            // Else do nothing 
+            default:
+                break;
+            }
+            
+            // End of loop 
+        }
+        
+         
+        // Print out "Your Score: 'userScore'" 
+        console.log(`Your Score: ${userScore}`);
+        
+        // Print out "Computer Score: 'computerScore'" 
+        console.log(`Computer Score: ${computerScore}`);
+        
+        // If "userScore" is greater than "computerScore" then Print out "Congratulation user. You Won!!" 
+        if(userScore > computerScore){
+            console.log("Congratulation user. You won!!");
+        }
+         
+        // Else if "userScore" is smaller than "computerScore" then Print out "Nice try. Computer Won!!" 
+        else if (userScore < computerScore){
+            console.log("Nice try. Computer won!!");
+        }
+
+        // Else Print out "It's a Tie" 
+        else{
+            console.log("It's a tie");
+        }
+    }
