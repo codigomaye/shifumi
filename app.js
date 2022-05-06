@@ -102,3 +102,9 @@ function playRound(playerSelection, computerSelection){
     return winner;
     
 }
+
+const playerSelection = playerPlay();
+const computerSelection = computerPlay();
+
+playRound(playerSelection, computerSelection)
+
