@@ -1,12 +1,10 @@
-// USER_CHOICE
-function playerPlay() {
+function userPlay() {
 
     let userChoice;
     let keepAsking = true;
 
-
     while (keepAsking) {
-        
+
         userChoice = prompt("Insert 'Rock', 'Paper' or 'Scissors'");
 
         userChoice = userChoice.toLowerCase();
@@ -22,7 +20,6 @@ function playerPlay() {
     }
 }
 
-// COMPUTER_CHOICE
 function computerPlay() {
 
     let choices = ["rock", "paper", "scissors"];
@@ -35,7 +32,6 @@ function computerPlay() {
 
     return choices[randomChoice];
 }
-
 
 function playRound(playerSelection, computerSelection) {
 
@@ -70,78 +66,57 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-
-// GAME
 function game() {
 
-    // Create variable "userScore" as integer with value 0 
     let userScore = 0;
 
-    // Create variable "computerScore" as integer with value 0 
     let computerScore = 0;
 
-    // Create variable "userChoice" as string 
     let userChoice;
 
-    // Create variable "computerChoice" as string 
     let computerChoice;
 
-    // Create variable "winner" as string 
     let winner;
 
-    // Enter in a 5 time loop 
-    for(let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
 
-        // Set "userChoice" value as USER_CHOICE 
-        userChoice = playerPlay();
+        userChoice = userPlay();
 
-        // Set "computerChoice" value as COMPUTER_CHOICE 
         computerChoice = computerPlay();
 
-        // set "winner" value as PLAY_ROUND with parameter: userChoice, computerChoice 
         winner = playRound(userChoice, computerChoice);
 
-        // In the case "winner" 
-        switch(winner){
-            
-            // Is 'user' then increment "userScore" value by 1 
+        switch (winner) {
+
             case 'user':
                 userScore++;
                 break;
-            
-            // Is 'computer' then increment "computerScore" value by 1 
+
             case 'computer':
                 computerScore++;
                 break;
 
-            // Else do nothing 
             default:
                 break;
         }
-        // End of loop 
     }
-    
-    // Print out "Your Score: 'userScore'" 
-     console.log(`Your score: ${userScore}`);
-    
-    // Print out "Computer Score: 'computerScore'" 
+
+    console.log(`Your score: ${userScore}`);
+
     console.log(`Computer score: ${computerScore}`);
-    
-    // If "userScore" is greater than "computerScore" then Print out "Congratulation user. You Won!!" 
-    if(userScore > computerScore){
+
+    if (userScore > computerScore) {
         console.log("Congratulation: You won!!");
     }
-     
-    // Else if "userScore" is smaller than "computerScore" then Print out "Nice try. Computer Won!!" 
-    else if (userScore < computerScore){
+
+    else if (userScore < computerScore) {
         console.log("Nice try. Computer won!!");
     }
-    
-    // Else Print out "It's a Tie" 
-     else{
-         console.log("It's a tie !!");
-     }
-    
+
+    else {
+        console.log("It's a tie !!");
+    }
+
 }
 
 game();
