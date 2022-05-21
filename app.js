@@ -100,6 +100,12 @@ function game(){
     let computerScore = 0;
     let winner = "";
     let gameWinner = document.querySelector(".gameWinner")
+    let userScoreBoard = document.querySelector(".scoreBoard .user");
+    let computerScoreBoard = document.querySelector(".scoreBoard .computer")
+
+    userScoreBoard.textContent = 0;
+    computerScoreBoard.textContent = 0;
+
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             userChoice = button.value;
@@ -108,9 +114,13 @@ function game(){
             switch (winner) {
                 case "user":
                     userScore++;
+                    console.log(userScore)
+                    userScoreBoard.textContent = userScore;
                     break;
                 case "computer":
-                    computerChoice++;
+                    computerScore++;
+                    console.log(computerScore)
+                    computerScoreBoard.textContent = computerScore;
                     break;
                 default:
                     break;
