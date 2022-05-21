@@ -1,3 +1,10 @@
+let buttons = document.querySelectorAll(".choice");
+let userChoice = "";
+let userScore = 0;
+let computerChoice = "";
+let computerScore = 0;
+let winner = "";
+
 function userPlay() {
 
     let userChoice;
@@ -33,13 +40,13 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
-function emojify(choiceToEmojify){
+function emojify(choiceToEmojify) {
 
     let choice = choiceToEmojify;
 
-    switch (choice){
+    switch (choice) {
 
-        case "rock" :
+        case "rock":
             return "🪨";
             break;
 
@@ -53,7 +60,7 @@ function emojify(choiceToEmojify){
 
         default:
             return "error";
-            break; 
+            break;
     }
 }
 
@@ -83,7 +90,6 @@ function playRound(playerSelection, computerSelection) {
 
     else {
         console.log(`🙍 -> ${emojify(user)} | 🖥️ -> ${emojify(computer)}: Computer win`);
-
         winner = "computer";
     }
 
@@ -91,57 +97,20 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
-
-    let userScore = 0;
-
-    let computerScore = 0;
-
-    let userChoice;
-
-    let computerChoice;
-
-    let winner;
-
-    for (let i = 0; i < 5; i++) {
-
-        userChoice = userPlay();
-
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        userChoice = button.value;
         computerChoice = computerPlay();
-
         winner = playRound(userChoice, computerChoice);
-
         switch (winner) {
-
-            case 'user':
+            case "user":
                 userScore++;
                 break;
-
-            case 'computer':
-                computerScore++;
+            case "computer":
+                computerChoice++;
                 break;
-
             default:
                 break;
         }
-    }
-
-    console.log(`🙍: ${userScore}`);
-
-    console.log(`🖥️: ${computerScore}`);
-
-    if (userScore > computerScore) {
-        console.log("Congratulation: You won!!");
-    }
-
-    else if (userScore < computerScore) {
-        console.log("Nice try. Computer won!!");
-    }
-
-    else {
-        console.log("It's a tie !!");
-    }
-
-}
-
-game();
+    })
+})
