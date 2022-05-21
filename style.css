@@ -1,0 +1,19 @@
+body{
+    font-size: 35px;
+}
+
+
+.scoreBoard{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.gameWinner{
+    display: flex;
+    justify-content: center;
+}
