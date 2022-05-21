@@ -1,9 +1,4 @@
-let buttons = document.querySelectorAll(".choice");
-let userChoice = "";
-let userScore = 0;
-let computerChoice = "";
-let computerScore = 0;
-let winner = "";
+
 
 function userPlay() {
 
@@ -97,20 +92,39 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        userChoice = button.value;
-        computerChoice = computerPlay();
-        winner = playRound(userChoice, computerChoice);
-        switch (winner) {
-            case "user":
-                userScore++;
-                break;
-            case "computer":
-                computerChoice++;
-                break;
-            default:
-                break;
-        }
+function game(){
+    let buttons = document.querySelectorAll(".choice");
+    let userChoice = "";
+    let userScore = 0;
+    let computerChoice = "";
+    let computerScore = 0;
+    let winner = "";
+    let gameWinner = document.querySelector(".gameWinner")
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            userChoice = button.value;
+            computerChoice = computerPlay();
+            winner = playRound(userChoice, computerChoice);
+            switch (winner) {
+                case "user":
+                    userScore++;
+                    break;
+                case "computer":
+                    computerChoice++;
+                    break;
+                default:
+                    break;
+            }
+            if (userScore == 5){
+                gameWinner.textContent = "Congrat. You won!!";
+            }
+            else if (computerScore == 5){
+                gameWinner.textContent = "Nice try. Computer won!!";
+            }
+        })
     })
-})
+    
+}
+
+game();
+
